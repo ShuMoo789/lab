@@ -1,57 +1,20 @@
 import React, { Component } from 'react'
+import { LOP } from './shared/ListOfPlayers'
 
 export default class Players extends Component {
   render() {
     return (
       <div className='container'>
-        <div className='column'>
+        {LOP.map((player, id) => (
+          <div className='column' key={id}>
             <div className='card'>
-                <img src='assets/cr.jpg'/>
-                <h3>Cristiano Ronaldo</h3>
-                <p className='title'>Manchester United</p>
-                <p><button>Detail</button></p>
+              <img src={player.img} alt={player.name} />
+              <h3>{player.name}</h3>
+              <p className='title'>{player.club}</p>
+              <p><button>Detail</button></p>
             </div>
-        </div>
-        <div className='column'>
-            <div className='card'>
-                <img src='assets/kante.jpg'/>
-                <h3>Kante</h3>
-                <p className='title'>Chelsea</p>
-                <p><button>Detail</button></p>
-            </div>
-        </div>
-        <div className='column'>
-            <div className='card'>
-                <img src='assets/messi.jpg'/>
-                <h3>Messi</h3>
-                <p className='title'>PSG</p>
-                <p><button>Detail</button></p>
-            </div>
-        </div>
-        <div className='column'>
-            <div className='card'>
-                <img src='assets/neymar.jpg'/>
-                <h3>Neymar</h3>
-                <p className='title'>PSG</p>
-                <p><button>Detail</button></p>
-            </div>
-        </div>
-        <div className='column'>
-            <div className='card'>
-                <img src='assets/kane.jpg'/>
-                <h3>Kane</h3>
-                <p className='title'>Tottemham</p>
-                <p><button>Detail</button></p>
-            </div>
-        </div>
-        <div className='column'>
-            <div className='card'>
-                <img src='assets/haaland.jpg'/>
-                <h3>Haaland</h3>
-                <p className='title'>Manchester City</p>
-                <p><button>Detail</button></p>
-            </div>
-        </div>
+          </div>
+        ))}
       </div>
     )
   }
